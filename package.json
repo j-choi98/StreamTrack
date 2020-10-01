@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git+https://github.com/j-choi98/StreamTrack.git"
   },
+  "scripts": {
+    "start": "yarn start:frontend",
+    "start:frontend": "yarn workspace @streamtrack/frontend start"
+  },
   "author": "",
   "license": "ISC",
   "private": true,
