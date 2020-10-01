@@ -1,13 +1,16 @@
 {
   "name": "streamtrack",
   "description": "",
-  "scripts": {},
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/j-choi98/StreamTrack.git"
   },
   "author": "",
   "license": "ISC",
+  "private": true,
   "bugs": {
     "url": "https://github.com/j-choi98/StreamTrack/issues"
   },
