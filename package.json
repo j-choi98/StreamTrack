@@ -9,8 +9,8 @@
     "url": "git+https://github.com/j-choi98/StreamTrack.git"
   },
   "scripts": {
-    "start": "yarn start:client",
-    "start:client": "yarn workspace @streamtrack/client start"
+    "start:client": "yarn workspace @streamtrack/client start",
+    "start:server": "yarn workspace @streamtrack/server start"
   },
   "author": "",
   "license": "ISC",

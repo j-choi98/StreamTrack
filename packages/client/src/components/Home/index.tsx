@@ -18,19 +18,15 @@ export default function Home() {
             <Divider className="mb-8" />
 
             <div className="grid grid-cols-2 gap-8">
-              <div className="border-2 border-teal-400 rounded p-4">
+              <div>
                 <div className="text-2xl uppercase break-words">
                   Number of Channels Being Tracked
                 </div>
 
-                <Divider className="mb-3 mt-3" />
-
                 <div className="text-6xl break-words">100,000,000,000</div>
               </div>
-              <div className="border-2 border-teal-400 rounded p-4">
+              <div>
                 <div className="text-2xl uppercase break-words">Number of Total Logs</div>
-
-                <Divider className="mb-3 mt-3" />
 
                 <div className="text-6xl break-words">100,000,000,000</div>
               </div>
