@@ -1,11 +1,12 @@
 import React from 'react';
 import Container from '../Container';
+import Divider from '../Divider';
 
 export default function Header() {
   return (
-    <div className="bg-gradient-to-r from-teal-400 to-indigo-700">
+    <div className="bg-dark">
       <Container className="flex items-center">
-        <div className="flex text-white items-center mx-5">
+        <div className="flex text-brightred items-center mx-5">
           <svg
             className="mr-4 fill-current h-8 md:h-16"
             xmlns="http://www.w3.org/2000/svg"
@@ -18,14 +19,14 @@ export default function Header() {
             />
           </svg>
 
-          <div className="font-bold uppercase font-poppins text-3xl md:text-5xl">
+          <div className="font-bold text-brightred uppercase font-poppins text-3xl md:text-5xl">
             StreamTrack
           </div>
         </div>
 
         <div className="flex font-poppins ml-auto items-center mx-5">
           <div className="block md:hidden">
-            <button className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-black hover:bg-white active:bg-white focus:outline-none">
+            <button className="flex items-center px-3 py-2 border rounded text-brightred border-brightred hover:text-black hover:bg-white active:bg-white focus:outline-none">
               <svg
                 className="fill-current h-3 w-3"
                 viewBox="0 0 20 20"
@@ -39,7 +40,7 @@ export default function Header() {
 
           <div className="mr-4 hidden md:block">
             <a
-              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-white border-white hover:text-black hover:bg-white active:bg-white"
+              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-brightred border-brightred hover:text-white hover:bg-brightred active:bg-white"
               href="#"
             >
               Home
@@ -47,7 +48,7 @@ export default function Header() {
           </div>
           <div className="hidden md:block">
             <a
-              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-white border-white hover:text-black hover:bg-white"
+              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-brightred border-brightred hover:text-white hover:bg-brightred"
               href="#"
             >
               Lookup

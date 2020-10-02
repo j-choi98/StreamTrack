@@ -7,7 +7,7 @@ interface Props {
 
 const Divider = ({ className }: Props) => {
   return (
-    <div className={classnames('border border-indigo-700', className)}></div>
+    <div className={classnames('border border-borderred', className)}></div>
   );
 };
 
