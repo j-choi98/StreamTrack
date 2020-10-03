@@ -8,9 +8,7 @@ interface Props {
 
 const Container = ({ children, className }: Props) => {
   return (
-    <div className={classnames('container mx-auto', className)}>
-      {children}
-    </div>
+    <div className={classnames('container mx-auto', className)}>{children}</div>
   );
 };
 
