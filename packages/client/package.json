@@ -47,6 +47,9 @@
     "@types/react-router-dom": "^5.1.5",
     "autoprefixer": "^9.8.6",
     "postcss-cli": "^8.0.0",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "@fortawesome/fontawesome-svg-core": "^1.2.31",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-fontawesome": "^0.1.11"
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Divider from '../Divider';
 import Container from '../Container';
 import Card from '../Card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
               </div>
 
               <div className="text-6xl text-brightred break-words">
-                100,000,000,000
+                <FontAwesomeIcon icon="spinner" spin />
               </div>
             </div>
             <div>
@@ -24,7 +25,7 @@ export default function Home() {
               </div>
 
               <div className="text-6xl text-brightred break-words">
-                100,000,000,000
+                <FontAwesomeIcon icon="spinner" spin />
               </div>
             </div>
           </div>
