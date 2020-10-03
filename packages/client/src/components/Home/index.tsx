@@ -6,7 +6,7 @@ import Card from '../Card';
 export default function Home() {
   return (
     <Container>
-      <div className="grid grid-cols-1 gap-8 mx-5 my-5">
+      <div className="grid grid-cols-1 gap-8 mx-5 mb-5">
         <Card title="Statistics">
           <div className="grid grid-cols-2 gap-8">
             <div>

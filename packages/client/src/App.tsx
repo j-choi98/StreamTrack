@@ -8,7 +8,7 @@ import Lookup from './components/Lookup';
 export default function App() {
   return (
     <Router>
-      <div className="flex flex-col h-screen bg-dark">
+      <div className="flex flex-col min-h-screen bg-dark">
         <Header />
 
         <Switch>
