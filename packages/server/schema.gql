@@ -14,5 +14,6 @@ type Mutation {
 }
 
 type Query {
-  logs: [Log!]!
+  log(streamer: String, viewer: String): Log
+  logs(streamer: String, viewer: String): [Log!]!
 }
