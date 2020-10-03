@@ -10,7 +10,6 @@ export class LogResolver {
 
   @Mutation(() => Log)
   async addLogs(
-    @Arg('_id', (type) => ID, { nullable: true }) _id: string,
     @Arg('streamer') streamer: string,
     @Arg('viewers', (type) => [String]) viewers: string[]
   ) {
