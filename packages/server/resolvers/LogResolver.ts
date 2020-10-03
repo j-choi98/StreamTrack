@@ -5,8 +5,8 @@ import { Log, LogModel } from '../entities/Log';
 export class LogResolver {
   @Query(() => [Log])
   async logs(
-    @Arg('streamer', { nullable: true }) streamer: string,
-    @Arg('viewer', { nullable: true }) viewer: string
+    @Arg('streamer', { nullable: true }) streamer?: string,
+    @Arg('viewer', { nullable: true }) viewer?: string
   ) {
     return await LogModel.find({
       ...(streamer && { streamer }),
