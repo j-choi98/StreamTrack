@@ -1,25 +1,28 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-import mongoose from 'mongoose';
-import express from 'express';
-import schema from './graphql/schema';
-import { graphqlHTTP } from 'express-graphql';
+import 'reflect-metadata';
 
-(async () => {
-  await mongoose.connect(process.env.MONGO_URI!);
-})();
+import path from 'path';
+import express from 'express';
+import mongoose from 'mongoose';
+import { ApolloServer } from 'apollo-server-express';
+import { buildSchema } from 'type-graphql';
 
 const app = express();
 
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true
-  })
-);
+(async () => {
+  await mongoose.connect(process.env.MONGO_URI!);
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('Listening on port 3000.');
-});
+  const schema = await buildSchema({
+    resolvers: [__dirname + '/resolvers/**/*.{ts,js}'],
+    emitSchemaFile: path.resolve(__dirname, 'schema.gql')
+  });
+
+  const server = new ApolloServer({ schema });
+  server.applyMiddleware({ app });
+
+  app.listen(process.env.PORT || 3000, () => {
+    console.log('Listening on port 3000.');
+  });
+})();
