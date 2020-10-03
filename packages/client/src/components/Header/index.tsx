@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../Container';
-import Divider from '../Divider';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -39,20 +39,24 @@ export default function Header() {
           </div>
 
           <div className="mr-4 hidden md:block">
-            <a
-              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-brightred border-brightred hover:text-white hover:bg-brightred active:bg-white"
-              href="#"
+            <NavLink
+              exact
+              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-lessbrightred border-lessbrightred hover:text-white hover:bg-brightred hover:border-brightred"
+              to="/"
+              activeClassName="active-link"
             >
               Home
-            </a>
+            </NavLink>
           </div>
           <div className="hidden md:block">
-            <a
-              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-brightred border-brightred hover:text-white hover:bg-brightred"
-              href="#"
+            <NavLink
+              exact
+              className="inline-block text-xl px-6 py-2 border-2 duration-200 rounded text-lessbrightred border-lessbrightred hover:text-white hover:bg-brightred hover:border-brightred"
+              to="/lookup"
+              activeClassName="active-link"
             >
               Lookup
-            </a>
+            </NavLink>
           </div>
         </div>
       </Container>

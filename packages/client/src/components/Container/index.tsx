@@ -8,7 +8,14 @@ interface Props {
 
 const Container = ({ children, className }: Props) => {
   return (
-    <div className={classnames('container mx-auto', className)}>{children}</div>
+    <div
+      className={classnames(
+        'container mx-auto my-auto text-center font-poppins',
+        className
+      )}
+    >
+      {children}
+    </div>
   );
 };
 

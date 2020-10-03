@@ -11,7 +11,7 @@
   "scripts": {
     "start:client": "yarn workspace @streamtrack/client start",
     "start:server": "yarn workspace @streamtrack/server start",
-    "prettify": "prettier --single-quote --trailing-comma none --write \"**/*.{ts,tsx,json,yml,js,jsx}\""
+    "prettier": "prettier --single-quote --trailing-comma none --write \"**/*.{ts,tsx,json,yml,js,jsx}\""
   },
   "author": "",
   "license": "ISC",
