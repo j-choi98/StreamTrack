@@ -10,7 +10,7 @@ type Log {
 }
 
 type Mutation {
-  addLogs(streamer: String!, viewers: [String!]!): Log!
+  addLog(streamer: String!, viewers: [String!]!): Log!
 }
 
 type Query {
