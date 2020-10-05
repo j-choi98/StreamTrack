@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import environment from './environment';
+import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -11,15 +13,19 @@ library.add(faSpinner);
 
 export default function App() {
   return (
-    <Router>
+    <RelayEnvironmentProvider environment={environment}>
       <div className="flex flex-col min-h-screen bg-dark">
-        <Header />
+        <Router>
+          <Header />
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/lookup" component={Lookup} />
-        </Switch>
+          <Suspense fallback={<h1 className="text-white text-6xl">Loading</h1>}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/lookup" component={Lookup} />
+            </Switch>
+          </Suspense>
+        </Router>
       </div>
-    </Router>
+    </RelayEnvironmentProvider>
   );
 }

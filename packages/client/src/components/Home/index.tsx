@@ -1,10 +1,21 @@
 import React from 'react';
+import graphql from 'babel-plugin-relay/macro';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { HomeQuery } from './__generated__/HomeQuery.graphql';
+import { QueryRenderer } from 'react-relay';
+
 import Divider from '../Divider';
 import Container from '../Container';
 import Card from '../Card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import environment from '../../environment';
 
 export default function Home() {
+  const query = graphql`
+    query HomeQuery {
+      getStreamerCount
+    }
+  `;
+
   return (
     <Container>
       <div className="grid grid-cols-1 gap-8 mx-5 mb-5">
@@ -16,7 +27,17 @@ export default function Home() {
               </div>
 
               <div className="text-6xl text-brightred break-words">
-                <FontAwesomeIcon icon="spinner" spin />
+                <QueryRenderer<HomeQuery>
+                  environment={environment}
+                  query={query}
+                  variables={{}}
+                  render={({ props }) => {
+                    if (props) {
+                      return props.getStreamerCount;
+                    }
+                    return <FontAwesomeIcon icon="spinner" spin />;
+                  }}
+                />
               </div>
             </div>
             <div>

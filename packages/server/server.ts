@@ -12,20 +12,24 @@ import { buildSchema } from 'type-graphql';
 const app = express();
 
 (async () => {
-  await mongoose.connect(process.env.MONGO_URI!, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+  try {
+    await mongoose.connect(process.env.MONGO_URI!, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
 
-  const schema = await buildSchema({
-    resolvers: [__dirname + '/resolvers/**/*.{ts,js}'],
-    emitSchemaFile: path.resolve(__dirname, 'schema.gql')
-  });
+    const schema = await buildSchema({
+      resolvers: [__dirname + '/resolvers/**/*.{ts,js}'],
+      emitSchemaFile: path.resolve(__dirname, 'schema.gql')
+    });
 
-  const server = new ApolloServer({ schema });
-  server.applyMiddleware({ app });
+    const server = new ApolloServer({ schema });
+    server.applyMiddleware({ app, path: '/api/graphql' });
 
-  app.listen(process.env.PORT || 3000, () => {
-    console.log('Listening on port 3000.');
-  });
+    app.listen(process.env.PORT || 3000, () => {
+      console.log('Listening on port 3000.');
+    });
+  } catch (err) {
+    console.log(err);
+  }
 })();

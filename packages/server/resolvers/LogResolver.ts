@@ -32,4 +32,9 @@ export class LogResolver {
   ) {
     return await LogModel.create({ streamer, viewers });
   }
+
+  @Query(() => Number)
+  async getStreamerCount() {
+    return await LogModel.countDocuments();
+  }
 }

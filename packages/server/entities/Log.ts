@@ -7,11 +7,11 @@ export class Log {
   readonly _id?: string;
 
   @Field()
-  @prop({ required: true })
+  @prop({ required: true, index: true })
   public streamer!: string;
 
   @Field((type) => [String])
-  @prop({ required: true, type: () => [String], default: [] })
+  @prop({ required: true, index: true, type: () => [String], default: [] })
   public viewers!: string[];
 }
 
