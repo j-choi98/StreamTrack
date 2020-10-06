@@ -5,7 +5,8 @@
 import { ConcreteRequest } from 'relay-runtime';
 export type HomeQueryVariables = {};
 export type HomeQueryResponse = {
-  readonly getStreamerCount: number;
+  readonly getTotalStreamerCount: number;
+  readonly getTotalViewerCount: number;
 };
 export type HomeQuery = {
   readonly response: HomeQueryResponse;
@@ -14,7 +15,8 @@ export type HomeQuery = {
 
 /*
 query HomeQuery {
-  getStreamerCount
+  getTotalStreamerCount
+  getTotalViewerCount
 }
 */
 
@@ -24,7 +26,14 @@ const node: ConcreteRequest = (function () {
       alias: null,
       args: null,
       kind: 'ScalarField',
-      name: 'getStreamerCount',
+      name: 'getTotalStreamerCount',
+      storageKey: null
+    },
+    {
+      alias: null,
+      args: null,
+      kind: 'ScalarField',
+      name: 'getTotalViewerCount',
       storageKey: null
     }
   ];
@@ -46,14 +55,15 @@ const node: ConcreteRequest = (function () {
       selections: v0 /*: any*/
     },
     params: {
-      cacheID: '45f4f039da303ecb27a82ddf474f1ff0',
+      cacheID: '2ddaa6371ad311c4cfec631cb0f97c57',
       id: null,
       metadata: {},
       name: 'HomeQuery',
       operationKind: 'query',
-      text: 'query HomeQuery {\n  getStreamerCount\n}\n'
+      text:
+        'query HomeQuery {\n  getTotalStreamerCount\n  getTotalViewerCount\n}\n'
     }
   };
 })();
-(node as any).hash = '66045e4c052bb48a46178f2bb891187a';
+(node as any).hash = 'd0d3582e351a1e44127ad93c58a8fa58';
 export default node;

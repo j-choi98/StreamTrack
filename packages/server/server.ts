@@ -20,7 +20,8 @@ const app = express();
 
     const schema = await buildSchema({
       resolvers: [__dirname + '/resolvers/**/*.{ts,js}'],
-      emitSchemaFile: path.resolve(__dirname, 'schema.gql')
+      emitSchemaFile: path.resolve(__dirname, 'schema.gql'),
+      validate: false
     });
 
     const server = new ApolloServer({ schema });

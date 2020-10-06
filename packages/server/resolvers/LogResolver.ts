@@ -1,4 +1,4 @@
-import { Resolver, Query, Arg, Mutation, ID } from 'type-graphql';
+import { Resolver, Query, Arg, Mutation } from 'type-graphql';
 import { Log, LogModel } from '../entities/Log';
 
 @Resolver()
@@ -30,11 +30,31 @@ export class LogResolver {
     @Arg('streamer') streamer: string,
     @Arg('viewers', (type) => [String]) viewers: string[]
   ) {
-    return await LogModel.create({ streamer, viewers });
+    return await LogModel.create({
+      streamer,
+      viewers,
+      viewerCount: viewers.length
+    });
   }
 
   @Query(() => Number)
-  async getStreamerCount() {
+  async getTotalStreamerCount() {
     return await LogModel.countDocuments();
+  }
+
+  @Query(() => Number)
+  async getTotalViewerCount() {
+    const sumResult = await LogModel.aggregate([
+      {
+        $group: {
+          _id: null,
+          total: {
+            $sum: '$viewerCount'
+          }
+        }
+      }
+    ]);
+
+    return sumResult[0].total;
   }
 }

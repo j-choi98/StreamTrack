@@ -6,6 +6,7 @@
 type Log {
   _id: ID!
   streamer: String!
+  viewerCount: Float!
   viewers: [String!]!
 }
 
@@ -14,7 +15,8 @@ type Mutation {
 }
 
 type Query {
-  getStreamerCount: Float!
+  getTotalStreamerCount: Float!
+  getTotalViewerCount: Float!
   log(streamer: String, viewer: String): Log
   logs(streamer: String, viewer: String): [Log!]!
 }

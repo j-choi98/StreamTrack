@@ -12,7 +12,8 @@ import environment from '../../environment';
 export default function Home() {
   const query = graphql`
     query HomeQuery {
-      getStreamerCount
+      getTotalStreamerCount
+      getTotalViewerCount
     }
   `;
 
@@ -23,7 +24,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-8">
             <div>
               <div className="text-2xl text-lessbrightred uppercase break-words">
-                Number of Channels Being Tracked
+                Number of Streamers Being Watched
               </div>
 
               <div className="text-6xl text-brightred break-words">
@@ -33,7 +34,7 @@ export default function Home() {
                   variables={{}}
                   render={({ props }) => {
                     if (props) {
-                      return props.getStreamerCount;
+                      return props.getTotalStreamerCount;
                     }
                     return <FontAwesomeIcon icon="spinner" spin />;
                   }}
@@ -42,11 +43,21 @@ export default function Home() {
             </div>
             <div>
               <div className="text-2xl uppercase text-lessbrightred break-words">
-                Number of Total Logs
+                Number of Viewers Tracked
               </div>
 
               <div className="text-6xl text-brightred break-words">
-                <FontAwesomeIcon icon="spinner" spin />
+                <QueryRenderer<HomeQuery>
+                  environment={environment}
+                  query={query}
+                  variables={{}}
+                  render={({ props }) => {
+                    if (props) {
+                      return props.getTotalViewerCount;
+                    }
+                    return <FontAwesomeIcon icon="spinner" spin />;
+                  }}
+                />
               </div>
             </div>
           </div>
